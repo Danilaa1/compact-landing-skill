@@ -1,0 +1,29 @@
+{
+  "name": "compact-landing",
+  "version": "1.0.2",
+  "description": "Agent skill for building compact, tactile, premium landing pages.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "compact-landing": "./bin/compact-landing.mjs"
+  },
+  "files": [
+    "README.md",
+    "SKILL.md",
+    "references",
+    "agents",
+    "bin"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "agent-skills",
+    "codex",
+    "claude",
+    "cursor",
+    "gemini",
+    "landing-page",
+    "ui"
+  ]
+}
