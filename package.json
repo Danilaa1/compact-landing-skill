@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "compact-landing": "./bin/compact-landing.mjs"
+    "compact-landing": "bin/compact-landing.mjs"
   },
   "files": [
     "README.md",
