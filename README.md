@@ -2,6 +2,16 @@
 
 Build compact, tactile, premium landing pages with agents.
 
+## Install with the skills CLI
+
+```bash
+npx skills add Danilaa1/compact-landing-skill
+```
+
+Listed on [skills.sh](https://skills.sh).
+
+## Install with npm
+
 ```bash
 npx compact-landing install
 ```

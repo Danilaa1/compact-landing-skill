@@ -5,7 +5,7 @@ import { createInterface } from "node:readline/promises";
 import { fileURLToPath } from "node:url";
 
 const skillName = "compact-landing";
-const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const root = resolve(dirname(fileURLToPath(import.meta.url)), "..", "skills", skillName);
 const home = process.env.HOME || process.env.USERPROFILE;
 const useColor = process.env.NO_COLOR === undefined && process.stdout.isTTY !== false;
 

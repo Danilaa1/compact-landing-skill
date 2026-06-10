@@ -9,9 +9,7 @@
   },
   "files": [
     "README.md",
-    "SKILL.md",
-    "references",
-    "agents",
+    "skills",
     "bin"
   ],
   "engines": {
