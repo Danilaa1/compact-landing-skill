@@ -19,11 +19,12 @@ It is portable across models and stacks: treat it as a visual-system recipe, not
 Before implementing, ask the user these questions unless they already answered them or explicitly told you to choose defaults:
 
 1. What product is the page for, and what is the primary CTA?
-2. Which compact layout should lead: Instrument, Console, Ledger, Workbench, or Manual?
-3. What theme direction fits best: neutral-light, soft-dark, editorial-white, or product-tinted?
-4. Should corners feel sharp, balanced, or softly rounded?
-5. Should the page use load transitions: none, subtle fade-in/out, or staggered fade/slide?
-6. How much content is needed: CTA-only, concise proof, or compact product walkthrough?
+2. What button size should set the interface tone: compact, medium, or large?
+3. Based on the CTA and button size, ask one better follow-up about layout density and choose a lead layout: Instrument, Console, Ledger, Workbench, or Manual.
+4. Based on the product category, ask one better follow-up about theme direction: neutral-light, soft-dark, editorial-white, or product-tinted.
+5. Should corners feel sharp, balanced, or softly rounded?
+6. Should the page use load transitions: none, subtle fade-in/out, or staggered fade/slide?
+7. How much content is needed: CTA-only, concise proof, or compact product walkthrough?
 
 If the user wants you to proceed without answering, use these defaults: Instrument layout, neutral-light theme, balanced small radii, subtle staggered fade on load, one clear CTA, one proof row group, one install/action block, and one compact detail/code section.
 
@@ -50,12 +51,15 @@ When exact values matter, read `references/style-dna.md`. Use those values as de
 6. Radius: keep small and precise: `6px` controls, `9px` command fields, `10px` code cards. Avoid pill-heavy UI except true status dots.
 7. Layout rhythm: header margin `6px`, tagline margin `36px`, demo rows `52px` tall, section gaps `36-44px`, usage head gap `12px`, footer margin `44px`.
 8. Motion: use `cubic-bezier(0.2, 0, 0, 1)`, 120ms press transforms, 220-300ms fades, 600ms page entrance staggered by 90ms.
-9. Label stability: lock animated label widths to the widest state so text rolls never shift layout.
-10. Microinteractions: active buttons scale to `0.96`; wider command controls scale to `0.98`; icon swaps animate opacity, scale `0.25 -> 1`, blur `4px -> 0`.
-11. Rows: use hairline separators and right-aligned controls; do not box every row.
-12. Code: small mono card with translucent white surface, `blur(8px)`, `12.5px/1.7`, syntax accent only for keywords/strings.
-13. CTA clarity: use one primary action verb, one supporting action at most, and never bury the CTA below a long explanation.
-14. Information density: include only what helps a visitor decide or act: product name, plain promise, one proof/preview area, CTA/action block, and concise details.
+9. Label stability: lock animated label widths to the widest state so text rolls never shift layout. Any slot-text, counter, tab, copied label, or command label must reserve its final width before animation starts.
+10. Button scale: ask the user to choose `compact`, `medium`, or `large`, then apply it consistently. Compact = 24-28px tall, `4-6px 8-9px` padding, 11-12px label. Medium = 32-36px tall, `7-9px 11-13px` padding, 12.5-13px label. Large = 40-44px tall, `10-12px 14-16px` padding, 13.5-14px label. Even large buttons must still feel compact and precise.
+11. Assistant buttons: for AI-doc or `llms.txt` actions, use an `.llms-btn` pattern with inline flex, 5px gap, small mono label, shadow-control, active scale `0.96`, and a width-locked slot-text label such as `.lockable { min-width: 52px; }`. Do not embed SVG markup in skill output; use the project icon system, an icon component, or a simple CSS dot/glyph.
+12. No layout shift: animate only `opacity`, `transform`, and `filter`; never animate width, height, margin, padding, font-size, line-height, or grid tracks. Give rows, controls, tab bars, icon slots, code panels, counters, and preview cards stable dimensions before any animation runs.
+13. Microinteractions: active buttons scale to `0.96`; wider command controls scale to `0.98`; icon swaps animate opacity, scale `0.25 -> 1`, blur `4px -> 0`.
+14. Rows: use hairline separators and right-aligned controls; do not box every row.
+15. Code: small mono card with translucent white surface, `blur(8px)`, `12.5px/1.7`, syntax accent only for keywords/strings.
+16. CTA clarity: use one primary action verb, one supporting action at most, and never bury the CTA below a long explanation.
+17. Information density: include only what helps a visitor decide or act: product name, plain promise, one proof/preview area, CTA/action block, and concise details.
 
 ## Variation Rules
 
@@ -92,6 +96,9 @@ If the target stack lacks CSS anchor positioning, use a simple active-tab backgr
 - Text hierarchy is quiet: `h1` around 17px, section labels around 13px, row labels around 12px mono.
 - All numbers use tabular numerals.
 - Controls have at least tactile feedback and no `transition: all`.
+- Buttons follow the chosen size scale: compact, medium, or large.
+- `llms.txt` / assistant-copy buttons use `.llms-btn` with the locked 52px label width and no embedded SVG markup.
+- Animations cause no layout shift: fixed/reserved dimensions are present before slot text, counters, panels, icons, or tabs animate.
 - Section spacing uses the tight rhythm from this skill, not generic landing-page spacing.
 - Animated labels are width-locked before state changes.
 - Reduced motion preserves usability.

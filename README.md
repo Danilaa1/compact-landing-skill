@@ -75,13 +75,14 @@ Use compact-landing to create a premium compact landing page for this package.
 
 ## Release Surface
 
-The npm package ships only the installer, README, package metadata, license, and skill files:
+The public repo stays focused on the skill, docs, package metadata, and license:
 
 ```txt
-bin/compact-landing.mjs
 skills/compact-landing/SKILL.md
 skills/compact-landing/agents/openai.yaml
 skills/compact-landing/references/style-dna.md
+README.md
+LICENSE
 ```
 
 ## Publish

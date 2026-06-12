@@ -111,11 +111,67 @@ Combine components in different compact sequences. Do not always emit header -> 
 - `padding: 5px 9px`, `border-radius: 6px`, `box-shadow: --shadow-control`.
 - Active: `transform: scale(0.96)`.
 
+### Button Scale
+
+Ask the user to pick one size before implementation and apply it consistently:
+
+- Compact: 24-28px tall, `4-6px 8-9px` padding, 11-12px label.
+- Medium: 32-36px tall, `7-9px 11-13px` padding, 12.5-13px label.
+- Large: 40-44px tall, `10-12px 14-16px` padding, 13.5-14px label.
+
+Large does not mean loud. Keep shadow rings, tight radii, stable labels, and precise press feedback.
+
 ### LLMS Button
 
-- Inline flex with `gap: 5px`.
-- Mono `11px/1`, `padding: 4px 8px`, icon `11px`.
-- Hover changes color only; active scales `0.96`.
+Use this exact pattern for assistant-doc copy actions such as `llms.txt`.
+
+```html
+<button class="llms-btn" type="button" id="copy-llms" title="Copy usage doc for AI assistants">
+  <span class="llms-icon" aria-hidden="true"></span>
+  <span class="lockable slot-text">llms.txt</span>
+</button>
+```
+
+```css
+.llms-btn {
+  appearance: none;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 24px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink-2);
+  font: 500 11px/1 var(--font-mono);
+  letter-spacing: var(--tracking);
+  box-shadow: var(--shadow-control);
+  transition: color 120ms var(--ease-out), transform 120ms var(--ease-out);
+}
+
+.llms-btn:hover {
+  color: var(--ink);
+}
+
+.llms-btn:active {
+  transform: scale(0.96);
+}
+
+.llms-btn .llms-icon {
+  width: 11px;
+  height: 11px;
+  flex: none;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.llms-btn .lockable {
+  min-width: 52px;
+}
+```
+
+Keep generated `slot-text` character spans inside `.lockable`; do not animate label width. Hover changes color only; active scales `0.96`. Do not include embedded SVG markup in the skill output; use the project icon system, an icon component already available in the app, or the CSS icon placeholder above.
 
 ### Demo Rows
 
@@ -164,6 +220,8 @@ Combine components in different compact sequences. Do not always emit header -> 
 - Each direct child of `main`: `opacity: 0`, `animation: enter 600ms var(--ease-out) forwards`.
 - Stagger delays: `0ms`, `90ms`, `180ms`, `270ms`, `360ms`, `450ms`.
 - Entrance starts at `translateY(6px)` and `blur(3px)`.
+- Layout must not move during animation. Reserve exact dimensions before animation starts: `min-height` on rows/cards/previews, fixed `width/height` on icons, `min-width` on slot labels, tabular numerals on counters, and single-grid-area panels for code/preview swaps.
+- Animate only `opacity`, `transform`, and `filter`. Do not transition `all`; do not animate `width`, `height`, `margin`, `padding`, `font-size`, `line-height`, `left`, `top`, or grid/flex sizing.
 - Icon swap transitions: opacity, transform, filter over `300ms`.
 - Hidden icon state: `opacity: 0`, `scale(0.25)`, `blur(4px)`.
 - Visible icon state: `opacity: 1`, `scale(1)`, `blur(0)`.
@@ -172,6 +230,8 @@ Combine components in different compact sequences. Do not always emit header -> 
 
 - Cursor is `crosshair` on buttons, links, and tabs.
 - Animated labels must be width locked to the widest possible state before animation.
+- Slot-text labels must render inside a fixed or min-width wrapper; generated character spans are allowed, but parent width must not change between words.
+- Swapping panels should share one grid cell, with inactive panels `position` or grid-overlapped so card height is stable.
 - Counter must use tabular numbers.
 - Copy action returns after about `1400ms`.
 - Counter updates slowly, around every `2800ms`, with small non-round deltas.
