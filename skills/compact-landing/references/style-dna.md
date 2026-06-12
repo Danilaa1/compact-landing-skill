@@ -6,6 +6,8 @@ Source style: a compact premium landing page built from split CSS layers (`token
 
 The style behaves more like a precise UI component demo than a marketing site. It is centered, narrow, quiet, tactile, and extremely measured. Visual interest comes from tiny live controls, width-stable animated text, hairline separators, layered shadows, and small motion.
 
+The product action stays central. Start from the primary CTA, then add only enough context for a visitor to understand the product, trust the action, and move.
+
 ## Layout Measurements
 
 Use these as defaults, not a frozen template. Preserve compact density while varying section order and component mix when the product context allows it.
@@ -188,6 +190,7 @@ Use concrete developer-tool language:
 
 - Product name first.
 - One plain tagline.
+- One primary CTA with a short command or action label.
 - Rows showing small live demos.
 - Installation command as a tactile field.
 - Short usage code with tabs.

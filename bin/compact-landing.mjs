@@ -78,6 +78,16 @@ Options:
 }
 
 function parseArgs(argv) {
+  if (argv.length === 0 || argv[0] === "--help" || argv[0] === "-h") {
+    return {
+      command: "help",
+      agents: [],
+      scope: "user",
+      dryRun: false,
+      force: true,
+    };
+  }
+
   const opts = {
     command: argv[0],
     agents: [],

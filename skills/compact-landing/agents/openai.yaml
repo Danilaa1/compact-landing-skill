@@ -1,4 +1,4 @@
 interface:
   display_name: "Compact Landing"
-  short_description: "Compact tactile UI style system"
-  default_prompt: "Use $compact-landing to design a compact, tactile, premium landing page."
+  short_description: "Premium compact product landing pages"
+  default_prompt: "Use $compact-landing to ask preflight questions, then design a compact, tactile, premium landing page with one clear CTA."

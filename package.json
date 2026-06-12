@@ -4,6 +4,14 @@
   "description": "Agent skill for building compact, tactile, premium landing pages.",
   "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Danilaa1/compact-landing-skill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Danilaa1/compact-landing-skill/issues"
+  },
+  "homepage": "https://github.com/Danilaa1/compact-landing-skill#readme",
   "bin": {
     "compact-landing": "bin/compact-landing.mjs"
   },
@@ -22,6 +30,7 @@
     "cursor",
     "gemini",
     "landing-page",
+    "premium-landing-page",
     "ui"
   ]
 }

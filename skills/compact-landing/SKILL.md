@@ -14,11 +14,25 @@ description: >-
 Use this skill to build compact, tactile, premium landing pages with precision UI density.
 It is portable across models and stacks: treat it as a visual-system recipe, not a dependency on one repo.
 
+## Preflight
+
+Before implementing, ask the user these questions unless they already answered them or explicitly told you to choose defaults:
+
+1. What product is the page for, and what is the primary CTA?
+2. Which compact layout should lead: Instrument, Console, Ledger, Workbench, or Manual?
+3. What theme direction fits best: neutral-light, soft-dark, editorial-white, or product-tinted?
+4. Should corners feel sharp, balanced, or softly rounded?
+5. Should the page use load transitions: none, subtle fade-in/out, or staggered fade/slide?
+6. How much content is needed: CTA-only, concise proof, or compact product walkthrough?
+
+If the user wants you to proceed without answering, use these defaults: Instrument layout, neutral-light theme, balanced small radii, subtle staggered fade on load, one clear CTA, one proof row group, one install/action block, and one compact detail/code section.
+
 ## Style Model
 
 Create a page that feels like a small, finished instrument:
 
 - Use a compact composition, not a wide marketing layout.
+- Keep the primary CTA visible early and repeat it only when it reduces friction.
 - Use restrained neutral-white surfaces with zinc ink and tiny green/amber status accents.
 - Let spacing do most hierarchy work; avoid hero drama, gradients as decoration, big cards, badges, or feature grids.
 - Make every interactive element feel tactile through tiny scale-on-press, shadow depth, and stable label widths.
@@ -40,6 +54,8 @@ When exact values matter, read `references/style-dna.md`. Use those values as de
 10. Microinteractions: active buttons scale to `0.96`; wider command controls scale to `0.98`; icon swaps animate opacity, scale `0.25 -> 1`, blur `4px -> 0`.
 11. Rows: use hairline separators and right-aligned controls; do not box every row.
 12. Code: small mono card with translucent white surface, `blur(8px)`, `12.5px/1.7`, syntax accent only for keywords/strings.
+13. CTA clarity: use one primary action verb, one supporting action at most, and never bury the CTA below a long explanation.
+14. Information density: include only what helps a visitor decide or act: product name, plain promise, one proof/preview area, CTA/action block, and concise details.
 
 ## Variation Rules
 
@@ -69,6 +85,8 @@ If the target stack lacks CSS anchor positioning, use a simple active-tab backgr
 
 ## Review Checklist
 
+- Preflight questions were asked or the user explicitly accepted defaults.
+- Primary CTA is clear in the first viewport and repeated only if useful.
 - Column remains compact at desktop and mobile widths.
 - The first screen clearly uses one chosen variation rather than the default sample structure.
 - Text hierarchy is quiet: `h1` around 17px, section labels around 13px, row labels around 12px mono.

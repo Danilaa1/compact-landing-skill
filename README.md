@@ -1,6 +1,15 @@
 # compact-landing
 
-Build compact, tactile, premium landing pages with agents.
+Agent skill for compact, premium product landing pages with one clear CTA and only the information needed to act.
+
+```txt
+product name
+plain promise
+compact proof rows
+primary CTA
+small detail/code block
+quiet footer
+```
 
 ## Install with the skills CLI
 
@@ -29,14 +38,17 @@ The installer lets people choose where to install the skill:
 ## What It Gives Agents
 
 ```txt
-small premium layouts
-quiet typography
-tactile controls
-stable animated labels
-hairline separators
-compact install blocks
-polished micro-demos
+question-first landing page workflow
+compact layout variants
+clear CTA hierarchy
+quiet premium typography
+tactile controls and command fields
+stable animated labels and counters
+hairline rows instead of noisy cards
+restrained fade/stagger motion
 ```
+
+When used, the skill asks a few preflight questions before implementing: product, CTA, layout, theme, corner style, load transition, and content depth. If the user asks it to choose, it uses compact defaults.
 
 ## Direct Installs
 
@@ -59,6 +71,17 @@ After installing, ask your agent:
 
 ```txt
 Use compact-landing to create a premium compact landing page for this package.
+```
+
+## Release Surface
+
+The npm package ships only the installer, README, package metadata, license, and skill files:
+
+```txt
+bin/compact-landing.mjs
+skills/compact-landing/SKILL.md
+skills/compact-landing/agents/openai.yaml
+skills/compact-landing/references/style-dna.md
 ```
 
 ## Publish
